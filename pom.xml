@@ -87,14 +87,14 @@
 
   <distributionManagement>
     <repository>
-      <name>Paradygm repo for releases</name>
-      <id>paradygm-emr</id>
-      <url>https://maven.pkg.github.com/Paradgym/openmrs-module-paradygm</url>
+		<id>paradygm-emr</id>
+        <name>Paradygm repo for releases</name>
+        <url>https://maven.pkg.github.com/Paradgym/openmrs-module-paradygm</url>
     </repository>
     <snapshotRepository>
-      <name>Paradgym repo for snapshots</name>
-      <id>paradygm-emr</id>
-      <url>https://maven.pkg.github.com/Paradgym/openmrs-module-paradygm</url>
+		<id>paradygm-emr</id>
+        <name>Paradgym repo for snapshots</name>
+        <url>https://maven.pkg.github.com/Paradgym/openmrs-module-paradygm</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
