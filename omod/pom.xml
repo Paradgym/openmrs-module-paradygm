@@ -9,7 +9,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>paradygm-omod</artifactId>
+	<artifactId>paradygm-emr-omod</artifactId>
 	<packaging>jar</packaging>
 	<name>PARADYGM EMR OMOD</name>
 	<description>OMOD project for PARADYGM EMR dependencies and customizations</description>
