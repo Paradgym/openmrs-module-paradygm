@@ -93,7 +93,7 @@
     </repository>
     <snapshotRepository>
 		<id>paradygm-emr</id>
-        <name>Paradgym repo for snapshots</name>
+        <name>Paradygm repo for snapshots</name>
         <url>https://maven.pkg.github.com/Paradgym/openmrs-module-paradygm</url>
     </snapshotRepository>
   </distributionManagement>
