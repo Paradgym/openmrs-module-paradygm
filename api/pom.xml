@@ -42,8 +42,13 @@
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
 			<version>${openMRSVersion}</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
+		<!--<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+			<version>${openMRSVersion}</version>
+		</dependency>-->
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>idgen-api</artifactId>
@@ -56,11 +61,6 @@
 			<artifactId>datafilter-api</artifactId>
 			<version>${datafilterVersion}</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.openmrs.api</groupId>
-			<artifactId>openmrs-api</artifactId>
-			<version>${openMRSVersion}</version>
 		</dependency>
 	</dependencies>
 
