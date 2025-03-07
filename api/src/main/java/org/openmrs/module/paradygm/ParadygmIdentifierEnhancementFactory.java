@@ -13,7 +13,7 @@ import org.openmrs.module.idgen.service.IdentifierSourceService;
 
 public class ParadygmIdentifierEnhancementFactory {
 
-    public static final String PARADYGM_IDENTIFIER_SOURCE_UUID = "81be3f03-5962-4b90-85e0-ddfd963a4cce";
+    public static final String PARADYGM_IDENTIFIER_SOURCE_UUID = "8549f706-7e85-4c1d-9424-217d50a2988b";
     public static final int RESET_IDENTIFIER_SEQUENCE_VALUE = 1;
     private static int lastRecordedYear = Year.now().getValue() % 100;
     protected Log log = LogFactory.getLog(getClass());

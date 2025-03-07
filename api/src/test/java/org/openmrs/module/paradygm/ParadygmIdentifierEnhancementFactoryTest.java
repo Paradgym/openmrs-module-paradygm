@@ -34,7 +34,7 @@ public class ParadygmIdentifierEnhancementFactoryTest {
     private ParadygmIdentifierEnhancementFactory identifierEnhancementFactory;
 
     private static final String TEST_PARADYGM_PATIENT_IDENTIFIER_PREFIX = "PDG-";
-    private static final String TEST_PARADYGM_IDENTIFIER_SOURCE_UUID = "81be3f03-5962-4b90-85e0-ddfd963a4cce";
+    private static final String TEST_PARADYGM_IDENTIFIER_SOURCE_UUID = "8549f706-7e85-4c1d-9424-217d50a2988b";
 
     @Mock
     private IdentifierSourceService identifierSourceService;
