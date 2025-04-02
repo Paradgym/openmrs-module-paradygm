@@ -13,6 +13,11 @@
 
 	<activator>org.openmrs.module.paradygm.ParadygmEmrActivator</activator>
 
+	<advice>
+		<point>org.openmrs.api.PatientService</point>
+		<class>org.openmrs.module.paradygm.advice.BeforeSaveAdvice</class>
+	</advice>
+
 	<require_modules>
 		<require_module version="4.10.0">org.openmrs.module.idgen</require_module>
 		<require_module version="2.2.0">org.openmrs.module.datafilter</require_module>
