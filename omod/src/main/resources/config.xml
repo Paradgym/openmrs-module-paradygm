@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <module configVersion="1.2">
-
 	<id>paradygm-emr</id>
 	<name>Paradygm EMR Module</name>
 	<version>1.0.0-SNAPSHOT</version>
@@ -13,6 +11,25 @@
 
 	<activator>org.openmrs.module.paradygm.ParadygmEmrActivator</activator>
 
+	<!-- Add these service beans -->
+	<beans>
+		<!-- Custom Entity Basis Map Service -->
+		<bean id="paradygm.customEntityBasisMapService"
+			  class="org.openmrs.module.paradygm.CustomEntityBasisMapService">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+
+		<!-- Form Location Service -->
+		<bean id="paradygm.formLocationService"
+			  class="org.openmrs.module.paradygm.FormLocationService">
+			<property name="entityBasisMapService" ref="paradygm.customEntityBasisMapService"/>
+		</bean>
+
+		<!-- Form Location Filter Listener -->
+		<bean id="paradygm.formLocationFilterListener"
+			  class="org.openmrs.module.paradygm.FormLocationFilterListener"/>
+	</beans>
+
 	<advice>
 		<point>org.openmrs.api.PatientService</point>
 		<class>org.openmrs.module.paradygm.advice.BeforeSaveAdvice</class>
@@ -22,5 +39,4 @@
 		<require_module version="4.10.0">org.openmrs.module.idgen</require_module>
 		<require_module version="2.2.0">org.openmrs.module.datafilter</require_module>
 	</require_modules>
-
 </module>
