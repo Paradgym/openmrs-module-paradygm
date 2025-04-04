@@ -64,7 +64,7 @@ public class IdentifierEnhancementFactoryTest {
         when(identifierSourceService.getIdentifierSourceByUuid(TEST_PARADYGM_IDENTIFIER_SOURCE_UUID)).thenReturn(sequentialIdentifierGenerator);
 
         identifierEnhancementFactory.enhanceIdentifier(patient);
-        // for year 2025, id will be PD200-25-000-001
+        // for year 2025, id will be PDG200-25-000-001
         assertEquals("PD200-" + getCurrentYear() + "-000-001", patient.getPatientIdentifier().getIdentifier());
     }
 
