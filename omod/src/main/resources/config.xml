@@ -26,8 +26,7 @@
 		</bean>
 
 		<!-- Form Location Filter Listener -->
-		<bean id="paradygm.formLocationFilterListener"
-			  class="org.openmrs.module.paradygm.FormLocationFilterListener"/>
+		<bean id="paradygm.formLocationFilterListener" class="org.openmrs.module.paradygm.FormLocationFilterListener"/>
 	</beans>
 
 	<advice>
