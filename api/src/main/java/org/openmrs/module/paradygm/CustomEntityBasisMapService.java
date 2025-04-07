@@ -3,9 +3,11 @@ package org.openmrs.module.paradygm;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.datafilter.impl.EntityBasisMap;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+@Service
 public class CustomEntityBasisMapService extends BaseOpenmrsService {
 
     private SessionFactory sessionFactory;
