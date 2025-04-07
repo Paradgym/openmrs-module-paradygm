@@ -15,7 +15,7 @@ public class FormLocationFilterListener implements DataFilterListener {
             return false; // Skip for super users
         }
 
-        if ("datafilter_locationBasedFormFilter".equals(filterContext.getFilterName())) {
+        if ("paradygm_locationBasedFormFilter".equals(filterContext.getFilterName())) {
             Location currentLocation = Context.getLocationService().getDefaultLocation();
             if (currentLocation != null) {
                 filterContext.setParameter("basisIds", currentLocation.getId().toString());
@@ -29,6 +29,6 @@ public class FormLocationFilterListener implements DataFilterListener {
 
     @Override
     public boolean supports(String filterName) {
-        return "datafilter_locationBasedFormFilter".equals(filterName);
+        return "paradygm_locationBasedFormFilter".equals(filterName);
     }
 }
