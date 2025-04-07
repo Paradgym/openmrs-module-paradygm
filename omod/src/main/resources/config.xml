@@ -11,24 +11,6 @@
 
 	<activator>org.openmrs.module.paradygm.ParadygmEmrActivator</activator>
 
-	<!-- Add these service beans -->
-	<beans>
-		<!-- Custom Entity Basis Map Service -->
-		<bean id="paradygm.customEntityBasisMapService"
-			  class="org.openmrs.module.paradygm.CustomEntityBasisMapService">
-			<property name="sessionFactory" ref="sessionFactory"/>
-		</bean>
-
-		<!-- Form Location Service -->
-		<bean id="paradygm.formLocationService"
-			  class="org.openmrs.module.paradygm.FormLocationService">
-			<property name="entityBasisMapService" ref="paradygm.customEntityBasisMapService"/>
-		</bean>
-
-		<!-- Form Location Filter Listener -->
-		<bean id="paradygm.formLocationFilterListener" class="org.openmrs.module.paradygm.FormLocationFilterListener"/>
-	</beans>
-
 	<advice>
 		<point>org.openmrs.api.PatientService</point>
 		<class>org.openmrs.module.paradygm.advice.BeforeSaveAdvice</class>
