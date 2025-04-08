@@ -16,7 +16,7 @@ import java.util.Date;
 public class FormLocationService {
 
     @Autowired
-    private CustomEntityBasisMapService entityBasisMapService;
+    private CustomEntityBasisMapService customEntityBasisMapService;
 
     @Autowired
     private LocationService locationService;
@@ -37,7 +37,7 @@ public class FormLocationService {
         User user = authenticatedUser != null ? authenticatedUser : userService.getUser(1); // Get authenticated user
 
         // Check if mapping already exists
-        if (entityBasisMapService.getMapsForFormAndLocation(form.getId(), currentLocation.getId()).isEmpty()) {
+        if (customEntityBasisMapService.getMapsForFormAndLocation(form.getId(), currentLocation.getId()).isEmpty()) {
             EntityBasisMap map = new EntityBasisMap();
             map.setEntityType("org.openmrs.Form");
             map.setEntityIdentifier(form.getId().toString());
@@ -46,7 +46,7 @@ public class FormLocationService {
             map.setCreator(user);
             map.setDateCreated(new Date());
 
-            entityBasisMapService.save(map);
+            customEntityBasisMapService.save(map);
         }
     }
 

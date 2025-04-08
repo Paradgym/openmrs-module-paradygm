@@ -41,7 +41,7 @@ public class FormLocationServiceTest {
         formLocationService = new FormLocationService();
 
         // Manually inject mocks
-        setPrivateField("entityBasisMapService", customEntityBasisMapService);
+        setPrivateField("customEntityBasisMapService", customEntityBasisMapService);
         setPrivateField("locationService", locationService);
         setPrivateField("userService", userService);
 
