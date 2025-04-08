@@ -6,7 +6,7 @@
 	<package>org.openmrs.module.paradygm</package>
 	<author>paradygm</author>
 	<description>
-		Base module for Paradygm backend dependencies and customizations like the Patient Identifier
+		Base module for Paradygm backend dependencies.
 	</description>
 
 	<activator>org.openmrs.module.paradygm.ParadygmEmrActivator</activator>
