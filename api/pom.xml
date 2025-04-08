@@ -17,6 +17,7 @@
 		<openMRSVersion>2.7.2-SNAPSHOT</openMRSVersion>
 		<idgenModuleVersion>4.11.0-SNAPSHOT</idgenModuleVersion>
 		<datafilterVersion>2.3.0-SNAPSHOT</datafilterVersion>
+		<legacyui.version>1.22.0</legacyui.version>
 	</properties>
 
 	<dependencies>
@@ -72,6 +73,12 @@
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>datafilter-api</artifactId>
 			<version>${datafilterVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>legacyui-omod</artifactId>
+			<version>${legacyui.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
