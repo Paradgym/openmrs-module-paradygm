@@ -9,6 +9,26 @@ import org.springframework.aop.MethodBeforeAdvice;
 
 import java.lang.reflect.Method;
 
+/**
+ * The BeforeSaveAdvice class provides advice for methods that interact with
+ * patient objects before and after their persistence. It implements both the
+ * `MethodBeforeAdvice` and `AfterReturningAdvice` interfaces.
+ *
+ * This class is primarily used to handle the following responsibilities:
+ * - Enhance the identifier of patients during the "savePatient" operation before the patient object is persisted.
+ * - Log relevant information once the patient object has been successfully saved.
+ * - Reset and update the identifier sequence if required when the year changes.
+ * - Manage thread-local state to ensure proper alignment of patient data during execution.
+ *
+ * Core functionalities include:
+ * - Before advice (via `before` method): Enhances identifiers for patients in the "savePatient" operation
+ *   if the patient does not already have an ID.
+ * - After returning advice (via `afterReturning` method): Handles post-persistence logic such as logging
+ *   successful patient creation and resetting identifier sequences when necessary.
+ *
+ * This class utilizes the `IdentifierEnhancementFactory` to perform identifier customization
+ * and sequence management.
+ */
 public class BeforeSaveAdvice implements MethodBeforeAdvice, AfterReturningAdvice {
 
     private static final String METHOD_TO_INTERCEPT = "savePatient";
