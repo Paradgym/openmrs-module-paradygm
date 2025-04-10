@@ -20,6 +20,9 @@ import java.util.HashSet;
 
 import static org.mockito.Mockito.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RunWith(MockitoJUnitRunner.class)
 public class FormLocationServiceTest {
 
@@ -32,6 +35,8 @@ public class FormLocationServiceTest {
     @Mock
     private UserService userService;
 
+    private static final Logger log = LoggerFactory.getLogger(FormLocationServiceTest.class);
+
     private FormLocationService formLocationService;
     private User mockUser;
 
@@ -41,6 +46,7 @@ public class FormLocationServiceTest {
         formLocationService = new FormLocationService();
 
         // Manually inject mocks
+        log.debug("Injecting mocks into FormLocationService");
         setPrivateField("customEntityBasisMapService", customEntityBasisMapService);
         setPrivateField("locationService", locationService);
         setPrivateField("userService", userService);
@@ -51,6 +57,7 @@ public class FormLocationServiceTest {
         mockUser.setUsername("doctor1");
 
         // Inject the mock user into the service
+        log.debug("Injecting authenticated user: {}", mockUser.getUsername());
         setPrivateField("authenticatedUser", mockUser);
     }
 
@@ -63,6 +70,7 @@ public class FormLocationServiceTest {
 
     @Test
     public void shouldSuccessfullyBindFormToLocation() {
+        log.debug("Executing shouldSuccessfullyBindFormToLocation test");
         Form form = new Form();
         form.setId(1);
         form.setName("Test Form");
@@ -70,6 +78,7 @@ public class FormLocationServiceTest {
         Location clinic = new Location();
         clinic.setId(1);
         clinic.setName("Clinic A");
+        log.debug("Created mock clinic: {}", clinic.getName());
 
         when(locationService.getDefaultLocation()).thenReturn(clinic);
         when(customEntityBasisMapService.getMapsForFormAndLocation(1, 1))
@@ -89,16 +98,24 @@ public class FormLocationServiceTest {
 
     @Test(expected = IllegalStateException.class)
     public void shouldThrowExceptionWhenUserHasNoLocation() {
+        log.debug("Executing shouldThrowExceptionWhenUserHasNoLocation test");
         Form form = new Form();
         form.setId(1);
 
         when(locationService.getDefaultLocation()).thenReturn(null);
 
+        Location clinic = new Location();
+        clinic.setId(1);
+        clinic.setName("Default Clinic");
+        log.debug("Binding form '{}' to location '{}'", form.getName(), clinic.getName());
+        formLocationService.bindFormToCurrentLocation(form);
+        log.debug("Attempting to bind form '{}' with no location", form.getId());
         formLocationService.bindFormToCurrentLocation(form);
     }
 
     @Test
     public void shouldNotCreateDuplicateBindings() {
+        log.debug("Executing shouldNotCreateDuplicateBindings test");
         Form form = new Form();
         form.setId(1);
 
@@ -117,11 +134,13 @@ public class FormLocationServiceTest {
 
         formLocationService.bindFormToCurrentLocation(form);
 
+        log.debug("Verifying no duplicate bindings for form '{}'", form.getId());
         verify(customEntityBasisMapService, never()).save(any());
     }
 
     @Test
     public void shouldHandleMultipleFormsForSameLocation() {
+        log.debug("Executing shouldHandleMultipleFormsForSameLocation test");
         Form covidForm = new Form();
         covidForm.setId(1);
 
@@ -135,7 +154,9 @@ public class FormLocationServiceTest {
         when(customEntityBasisMapService.getMapsForFormAndLocation(anyInt(), eq(1)))
                 .thenReturn(Collections.emptyList());
 
+        log.debug("Binding form '{}' to location '{}'", covidForm.getId(), clinic.getId());
         formLocationService.bindFormToCurrentLocation(covidForm);
+        log.debug("Binding form '{}' to location '{}'", hivForm.getId(), clinic.getId());
         formLocationService.bindFormToCurrentLocation(hivForm);
 
         verify(customEntityBasisMapService, times(2)).save(any(EntityBasisMap.class));
