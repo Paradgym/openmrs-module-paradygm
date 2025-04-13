@@ -10,6 +10,7 @@
         <module name="paradgym-omod" />
         <module name="paradygm-emr-api" />
         <module name="paradgym-emr-api" />
+        <module name="paradygm-emr-omod" />
       </profile>
     </annotationProcessing>
   </component>
