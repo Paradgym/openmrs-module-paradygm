@@ -8,3 +8,11 @@ target
 *.jar
 *.war
 *.ear
+
+
+.idea/
+omod/target/
+api/target/
+*.iml
+
+.vscode
