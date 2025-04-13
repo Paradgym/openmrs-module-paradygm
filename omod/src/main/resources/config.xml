@@ -15,18 +15,9 @@
 		<point>org.openmrs.api.PatientService</point>
 		<class>org.openmrs.module.paradygm.advice.BeforeSaveAdvice</class>
 	</advice>
-	<advice>
-		<point>org.openmrs.api.FormService</point>
-		<class>org.openmrs.module.paradygm.advice.BeforeSaveFormAdvice</class>
-	</advice>
-	<advice>
-		<point>org.openmrs.api.FormService</point>
-		<class>org.openmrs.module.paradygm.advice.AfterSaveFormAdvice</class>
-	</advice>
 
 	<require_modules>
 		<require_module version="4.10.0">org.openmrs.module.idgen</require_module>
 		<require_module version="2.2.0">org.openmrs.module.datafilter</require_module>
-		<require_module version="1.22.0">org.openmrs.module.legacyui</require_module>
 	</require_modules>
 </module>
